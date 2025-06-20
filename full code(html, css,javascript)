@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown</title>
+    <style>
+        body{
+            margin:0px;
+            padding: 0px;
+            background-image:url(https://tse1.mm.bing.net/th?id=OIP.UzB4KAruuh5E2IcarhTp8gHaEm&pid=Api&P=0&h=1800);
+            background-size: cover;
+            background-repeat:no-repeat ;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            flex-direction:column;
+           background-color: rgba(0, 0, 0, 0.8);
+           
+        }
+       
+        #box {
+           display: flex;
+           gap: 20px;
+           justify-content: center;
+           flex-wrap: wrap;
+           }
+         
+        h1{ 
+            margin: 20px 20px;
+            padding: 10px 10px;
+             color: aliceblue;
+            display: flex;
+            flex-direction: column;
+    
+
+        }
+
+        
+        input{
+            margin: 10px;
+            
+            height: 70px;
+            width: 70px;
+            display: block;
+             font-size: medium;
+            border-radius: 5px;
+            text-align: center;
+        
+            
+        }
+        label{
+            color: white;
+            font: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>we are coming soon....</h1>
+    <h1 id="end-date">21 June 2025 8:00 PM</h1>
+    <div id="box">
+        <div>
+            <input id="day" type="text" readonly value="00"> 
+            <label for="day">Days</label>
+        </div>
+     <div>
+        <input id="hr" type="text" readonly value="00"> 
+        <label for="hr">Hours</label>
+    </div>
+    <div>
+        <input id="min" type="text" readonly value="00"> 
+        <label for="min">Minutes</label>
+    </div>
+   <div>
+        <input id="sec" type="text" readonly value="00"> 
+       <label for="">Seconds</label>
+        </div>
+    
+
+</div>
+<script>
+    const endDate = "20 June 2025 05:04 PM";
+    document.getElementById("end-date").innerText = endDate;
+     const inputs = document.querySelectorAll("input");
+
+    function clock() {
+     const end = new Date(endDate);
+     const now = new Date();
+     const diff = (end-now)/1000;
+     if(diff < 0) {
+        document.querySelector("h1").innerText = "We're live now!";
+        document.querySelector("h1").style.color = "yellow";
+        document.querySelector("h1").style.fontSize = "100px";
+
+        document.getElementById("end-date").style.display = "none";
+        return;
+     } 
+     document.getElementById("day").value = Math.floor(diff / 3600 / 24);
+     document.getElementById("hr").value = Math.floor((diff / 3600) % 24);
+     document.getElementById("min").value = Math.floor((diff / 60) % 60);
+     document.getElementById("sec").value = Math.floor(diff % 60);
+
+   
+
+    }
+ clock();
+setInterval(
+    () => {
+        clock()
+    },1000
+)
+
+    
+</script>
+</body>
+</html>
