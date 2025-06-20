@@ -23,4 +23,4 @@ This project is a responsive and stylish "Coming Soon" landing page built using 
 
 ## ⌛ Target Date
 javascript
-const endDate = "19 June 2025 8:29 PM";
+const endDate = "20 June 2025 05:04 PM";
